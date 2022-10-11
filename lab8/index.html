@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function() {
+                questionOne();
+                questionTwo();
+            });
+
+            function questionOne() {
+                let btns = document.querySelectorAll('.button')
+                let statement = document.querySelector('#statement')
+
+                for(let i = 0; i < btns.length; i++) {
+
+                    // Find button
+                    let btn = btns[i]
+
+                    btn.addEventListener('click', function() {
+                        // Check if the id is 'correct'
+                        if (btn.id === 'correct') {
+                            btn.style.backgroundColor = 'green'
+                            statement.innerHTML = 'Correct!'
+                        } else {
+                            btn.style.backgroundColor = 'firebrick'
+                            statement.innerHTML = 'Incorrect!'
+                        }
+                    })
+                }
+            }
+
+
+
+            function questionTwo() {
+                const input = document.querySelector('#inputTwo')
+                const btn = document.querySelector('#check')
+                const statement = document.querySelector('#statementTwo')
+                btn.addEventListener('click', function() {
+                    if (input.value === '47000000'){
+                        statement.innerHTML = 'correct!'
+                        btn.style.backgroundColor = '#39FF14'
+                    }
+                    else {
+                        statement.innerHTML = 'incorrect!'
+                        btn.style.backgroundColor = '#EF0107'
+                    }
+                })
+
+
+            }
+           
+
+
+
+        </script>
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <!-- TODO: Add multiple choice question here -->
+                <h3>what is the exact number of Americans living in Europe? </h3>
+                <button id="correct" class="button">Ten Thousand Americans</button>
+                <button class="button">One American</button>
+                <button class="button">Two Americans</button>
+                <button class="button">Four Americans</button>
+                <p id="statement">Submit your answer</p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+                <h3>What is the number of people living in Spain?</h3>
+                <input id="inputTwo" type="text">
+                <button id="check" class="input">Check Answer</button>
+                <p id="statementTwo">Submit your answer</p>
+
+
+            </div>
+
+        </div>
+    </body>
+</html>
